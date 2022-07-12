@@ -13,4 +13,6 @@ First Time use:
 1. Enumerate
 2. Scan
 
-The router may not always respond to the enumeration attempt and the enumeration is only necessary if the router resets and or if the enumeration data does not already exist, so use option 2 if re-running upnpower [ SELECT PRE-ENUMERATED DATA ].
+The router may not always respond to the enumeration attempt and the enumeration is only necessary if the 
+router resets and or if the enumeration data does not already exist, so use option 2 if
+re-running upnpower [ SELECT PRE-ENUMERATED DATA ].
