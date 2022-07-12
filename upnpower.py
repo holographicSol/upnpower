@@ -4,6 +4,7 @@ import os.path
 import datetime
 import upnpclient
 import socket
+import codecs
 
 enum = []
 from_file_bool = False
@@ -58,11 +59,11 @@ def enumeration():
 
     # Check if file already exists
     if not os.path.exists(fname):
-        open(fname, 'w').close()
+        codecs.open(fname, 'w', encoding='utf-8').close()
 
     # Write the enumerated data to file
     if os.path.exists(fname):
-        with open(fname, 'w') as fo:
+        with codecs.open(fname, 'w', encoding='utf-8') as fo:
             for _ in enum:
                 fo.write(str(_) + '\n')
         fo.close()
@@ -131,6 +132,7 @@ def get_data():
         for k in d.service_map:
             print('\n[Service]', k)
 
+            # Magic formula
             for _ in d[k].actions:
                 action = str(_).split(' ')[1].replace("'>", "").replace("'", "")
                 print('         [Action]', action)
@@ -181,7 +183,7 @@ def use_existing_enum_data():
         if int(user_input_1) <= len(fname_all)-1:
             fname = './' + str(fname_all[int(user_input_1)])
             print('[READING FILE] ' + str(fname))
-            with open(fname, 'r') as fo:
+            with codecs.open(fname, 'r', encoding='utf-8') as fo:
                 for line in fo:
                     line = line.strip()
                     enum.append(line)
